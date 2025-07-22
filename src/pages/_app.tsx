@@ -8,6 +8,7 @@ import { AppThemeProvider } from "~/components/ui/providers/theme-provider";
 import type { AppProps } from "next/app";
 
 import "~/styles/globals.css";
+import MainLayout from "~/modules/common/MainLayout";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -16,9 +17,9 @@ const geist = Geist({
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AppThemeProvider>
-
+      <MainLayout>
       <Component {...pageProps} />
-
+      </MainLayout>
     </AppThemeProvider>
   );
 }
