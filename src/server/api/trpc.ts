@@ -26,6 +26,7 @@ import { db } from "~/server/db";
 
 interface CreateContextOptions {
   session: Session | null;
+  db: typeof db;
 }
 
 /**
@@ -38,10 +39,12 @@ interface CreateContextOptions {
  *
  * @see https://create.t3.gg/en/usage/trpc#-serverapitrpcts
  */
-const createInnerTRPCContext = (opts: CreateContextOptions) => {
+const createInnerTRPCContext = (
+  opts: CreateContextOptions,
+): CreateContextOptions => {
   return {
     session: opts.session,
-    db,
+    db: opts.db,
   };
 };
 
@@ -59,6 +62,7 @@ export const createTRPCContext = async (opts: CreateNextContextOptions) => {
 
   return createInnerTRPCContext({
     session,
+    db: db,
   });
 };
 

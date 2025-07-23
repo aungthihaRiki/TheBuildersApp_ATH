@@ -10,9 +10,9 @@ import type { AppProps } from "next/app";
 import "~/styles/globals.css";
 import MainLayout from "~/modules/common/MainLayout";
 
-const geist = Geist({
-  subsets: ["latin"],
-});
+// const geist = Geist({
+//   subsets: ["latin"],
+// });
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
